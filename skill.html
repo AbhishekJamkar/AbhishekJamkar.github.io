@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Glassmorphism Skills Bar</title>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #0a7aca;
+}
+.wrapper{
+    width: 40%;
+    min-width: 570px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.container{
+    width: 100%;
+    padding: 30px 30px 50px;
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+} 
+.container *{
+    font-family: "Poppins",sans-serif;
+    color: black;
+    font-weight: 500;
+}
+h2{
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 33px;
+    font-weight: bold;
+}
+.skills:not(:last-child){
+    margin-bottom: 30px;
+    
+}
+.details{
+    width: 100%;
+    display: flex;  
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.bar{
+    position: relative;
+ 
+    border: 2px solid #0d96e0;
+ 
+    border-radius: 20px;
+    background-color: black;
+
+}
+.bar div{
+    position: relative;
+    width: 0;
+    height: 9px;
+    border-radius: 10px;
+    background-color: yellowgreen;
+}
+/* ///////////////////////////////////////////////////// */
+.btn{
+    border: rebeccapurple;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border: 2px solid rgb(5, 0, 0);
+    border-radius: 20px;
+    padding: 0.55rem 0;
+    width: 250px;
+    font-weight: 600;
+    background: rgb(3, 22, 69);
+    margin: 0 0.5rem;
+    cursor: pointer;
+    color:#fff
+}
+
+/* ///////////////////////////////////////////////// */
+#html-bar{
+    animation: html-fill 2s forwards;
+}
+@keyframes html-fill{
+    100%{
+        width: 90%;
+    }
+}
+#css-bar{
+    animation: css-fill 2s forwards;
+}
+@keyframes css-fill{
+    100%{
+        width: 75%;
+    }
+}
+#js-bar{
+    animation: js-fill 2s forwards;
+}
+@keyframes js-fill {
+    100%{
+        width: 72%;
+    }
+}
+#jQuery-bar{
+    animation: jQuery-fill 2s forwards;
+}
+@keyframes jQuery-fill{
+    100%{
+        width: 65%;
+    }
+} 
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="container">
+            <h2>Programing Skills </h2>
+            <div class="skills">
+                <div class="details">
+                    <span>C Programing Language</span>
+                    <span>80%</span>
+                </div>
+                <div class="bar">
+                    <div id="html-bar"></div>
+                </div>
+            </div>
+            <div class="skills">
+                <div class="details">
+                    <span>C++ Programing Language</span>
+                    <span>65%</span>
+                </div>                
+                <div class="bar">
+                    <div id="jQuery-bar"></div>
+                </div>
+            </div>
+            <h2>Designing Skills </h2>
+            <div class="skills">
+                <div class="details">
+                    <span>HTML</span>
+                    <span>80%</span>
+                </div>
+                <div class="bar">
+                    <div id="html-bar"></div>
+                </div>
+        </div>
+        <div class="skills">
+            <div class="details">
+                <span>Css</span>
+                <span>65%</span>
+            </div>                
+            <div class="bar">
+                <div id="jQuery-bar"></div>
+            </div>
+            <BR>
+            <div>
+                <a href="index.html" class="btn">Home</a>
+              </div>      
+        </div>
+    </div>
+    
+
+    
+</body>
+</html>
