@@ -1,87 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
+      // Initialize EmailJS with your user ID
       (function() {
         emailjs.init("your_user_id"); // Replace "your_user_id" with your EmailJS User ID
       })();
     </script>
   </head>
-<body>
-  <div class="container">
-    <div class="content">
-      <div class="left-side">
-        <div class="address details">
-          <i class="fas fa-map-marker-alt"></i>
-          <div class="topic">Address</div>
-          <div class="text-one">Avadh Regalia, Near Swaminarayan School, Gandevi Road, Italava, Navsari, Gujarat 396445</div>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="left-side">
+          <div class="address details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Address</div>
+            <div class="text-one">Avadh Regalia, Near Swaminarayan School, Gandevi Road, Italava, Navsari, Gujarat 396445</div>
+          </div>
+          <div class="phone details">
+            <i class="fas fa-phone-alt"></i>
+            <div class="topic">Phone</div>
+            <div class="text-one">+91 8238596742</div>
+            <div class="text-two">+91 8238596741</div>
+          </div>
+          <div class="email details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one">jamkarabhishek@gmail.com</div>
+          </div>
         </div>
-        <div class="phone details">
-          <i class="fas fa-phone-alt"></i>
-          <div class="topic">Phone</div>
-          <div class="text-one">+91 8238596742</div>
-          <div class="text-two">+91 8238596741</div>
-        </div>
-        <div class="email details">
-          <i class="fas fa-envelope"></i>
-          <div class="topic">Email</div>
-          <div class="text-one">jamkarabhishek@gmail.com</div>
-        </div>
-      </div>
 
-      <div class="right-side">
-        <div class="topic-text">Send us a message</div>
-        <p>If you have any work from me or any queries related to my tutorial, you can send me a message from here. It's my pleasure to help you.</p>
-     
-        <form id="contact-form">
-          <div class="input-box">
-            <label for="name">Name</label><br>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
-          </div>
-          <div class="input-box">
-            <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
-          </div>
-          <div class="input-box message-box">
-            <label for="message">Message</label><br>
-            <textarea id="message" name="message" placeholder="Enter your message" required></textarea><br><br>
-          </div>
-          <input class="btn" type="submit" value="Send Now">
-          <a href="index.html" class="btn">Home</a>
-        </form>
+        <div class="right-side">
+          <div class="topic-text">Send us a message</div>
+          <p>If you have any work from me or any queries related to my tutorial, you can send me a message from here. It's my pleasure to help you.</p>
+          <form id="contact-form">
+            <div class="input-box">
+              <label for="name">Name</label><br>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+            </div>
+            <div class="input-box">
+              <label for="email">Email</label><br>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+            </div>
+            <div class="input-box message-box">
+              <label for="message">Message</label><br>
+              <textarea id="message" name="message" placeholder="Enter your message" required></textarea><br><br>
+            </div>
+            <input class="btn" type="submit" value="Send Now">
+            <a href="index.html" class="btn">Home</a>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent form from reloading the page
+    <script>
+      // Add event listener for form submission
+      document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from refreshing the page
 
-      // Collect form data
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
+        // Collect form data
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
 
-      // Send email using EmailJS
-      emailjs.send("your_service_id", "your_template_id", {
-        from_name: name,
-        from_email: email,
-        message: message
-      })
-      .then(function(response) {
-        alert("Message sent successfully!");
-        document.getElementById("contact-form").reset(); // Reset form
-      }, function(error) {
-        alert("Failed to send message. Please try again.");
-        console.error("EmailJS Error: ", error);
+        // Validate form fields (optional but recommended)
+        if (!name || !email || !message) {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+        // Send email using EmailJS
+        emailjs.send("your_service_id", "your_template_id", {
+          from_name: name,
+          from_email: email,
+          message: message
+        })
+        .then(function(response) {
+          alert("Message sent successfully!");
+          document.getElementById("contact-form").reset(); // Clear the form
+        })
+        .catch(function(error) {
+          console.error("EmailJS Error:", error);
+          alert("Failed to send message. Please try again.");
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
